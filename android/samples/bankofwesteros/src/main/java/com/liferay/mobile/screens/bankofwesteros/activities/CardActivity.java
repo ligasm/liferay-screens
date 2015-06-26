@@ -60,7 +60,7 @@ public abstract class CardActivity extends Activity implements View.OnClickListe
 			toCard1(null);
 		}
 		else if (v == _card2) {
-			toCard2();
+			toCard2(true);
 		}
 		else if (v == _card1ToFrontView) {
 			goLeftCard1();
@@ -200,7 +200,7 @@ public abstract class CardActivity extends Activity implements View.OnClickListe
 		TransitionManager.beginDelayedTransition(view);
 	}
 
-	protected void toCard2() {
+	protected void toCard2(boolean clean) {
 		showArrowIcon(_card2ToCard1);
 		showArrowIcon(_card2SubViewToCard1);
 		showArrowIcon(_card2ToFrontView);
@@ -283,7 +283,7 @@ public abstract class CardActivity extends Activity implements View.OnClickListe
 				switch (movement) {
 					case UP:
 					case TOUCH:
-						toCard2();
+						toCard2(true);
 						break;
 					case DOWN:
 						toCard1();
@@ -335,7 +335,7 @@ public abstract class CardActivity extends Activity implements View.OnClickListe
 		//INFO this should be generic and calculated via current card
 		Card previousCard = _cardHistory.peek();
 		if (previousCard == Card.CARD2) {
-			toCard2();
+			toCard2(true);
 		}
 		else if (previousCard == Card.CARD1) {
 			toCard1();

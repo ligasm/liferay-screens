@@ -1,6 +1,7 @@
 package com.liferay.mobile.screens.bankofwesteros.activities;
 
 import android.animation.Animator;
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
@@ -8,8 +9,10 @@ import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -28,6 +31,7 @@ import com.liferay.mobile.screens.ddl.model.DocumentField;
 import com.liferay.mobile.screens.ddl.model.Record;
 import com.liferay.mobile.screens.viewsets.defaultviews.LiferayCrouton;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
@@ -38,6 +42,16 @@ import java.util.List;
  */
 public class IssuesActivity extends CardActivity implements View.OnClickListener, DDLFormListener, BaseListListener<DDLEntry>, View.OnTouchListener {
 
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+
+		if (resultCode == Activity.RESULT_OK) {
+			_card2Open = true;
+			_ddlFormScreenlet.startUploadByPosition(requestCode);
+		}
+	}
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -64,6 +78,7 @@ public class IssuesActivity extends CardActivity implements View.OnClickListener
 		callMenuEntry.setOnTouchListener(this);
 		findViewById(R.id.account_settings_menu_entry).setOnTouchListener(this);
 		findViewById(R.id.send_message_menu_entry).setOnTouchListener(this);
+		findViewById(R.id.web_menu_entry).setOnTouchListener(this);
 		findViewById(R.id.sign_out_menu_entry).setOnTouchListener(this);
 	}
 
@@ -74,6 +89,9 @@ public class IssuesActivity extends CardActivity implements View.OnClickListener
 		//we don't want to crash if activity gets restored without session
 		if (!SessionContext.hasSession()) {
 			finish();
+		}
+		if(_card2Open){
+			toCard2(false);
 		}
 	}
 
@@ -102,11 +120,7 @@ public class IssuesActivity extends CardActivity implements View.OnClickListener
 
 	@Override
 	public void onListItemSelected(DDLEntry element, View view) {
-		selectDDLEntry(element);
-		if (view.getId() == R.id.liferay_list_edit) {
-			toCard2();
-		}
-		else if (view.getId() == R.id.liferay_list_view) {
+		if (view.getId() == R.id.liferay_list_view) {
 			goRightCard1(element);
 		}
 	}
@@ -125,12 +139,12 @@ public class IssuesActivity extends CardActivity implements View.OnClickListener
 
 	@Override
 	public void onDDLFormRecordAdded(Record record) {
-		reloadListAndShowResult("Issue Created");
+		reloadListAndShowResult(getString(R.string.entry_submitted));
 	}
 
 	@Override
 	public void onDDLFormRecordUpdated(Record record) {
-		reloadListAndShowResult("Issue Updated");
+		reloadListAndShowResult(getString(R.string.entry_updated));
 	}
 
 	@Override
@@ -212,15 +226,18 @@ public class IssuesActivity extends CardActivity implements View.OnClickListener
 	}
 
 	@Override
-	protected void toCard2() {
-		super.toCard2();
+	protected void toCard2(boolean clean) {
+		super.toCard2(clean);
+		_card2Open = false;
 		if (_entry != null) {
 			_ddlFormScreenlet.setRecordId((Integer) _entry.getAttributes("recordId"));
 			_ddlFormScreenlet.loadRecord();
 			goLeftCard1();
 		}
 		else {
-			clearDDLEntrySelected();
+			if(clean) {
+				clearDDLEntrySelected();
+			}
 		}
 	}
 
@@ -234,11 +251,6 @@ public class IssuesActivity extends CardActivity implements View.OnClickListener
 		return ssb;
 	}
 
-	private void selectDDLEntry(DDLEntry entry) {
-		_entry = entry;
-		_reportIssueTitle.setText(getString(R.string.edit_issue));
-		_sendButton.setText(getString(R.string.save).toUpperCase());
-	}
 
 	private void clearDDLEntrySelected() {
 		_entry = null;
@@ -264,16 +276,22 @@ public class IssuesActivity extends CardActivity implements View.OnClickListener
 		String date = new SimpleDateFormat("dd/MM/yyyy").format(element.getAttributes("createDate"));
 		((TextView) findViewById(R.id.createdAt)).setText("Created " + date);
 
-		TextView description = (TextView) findViewById(R.id.description);
-		description.setText(element.getValue("Description"));
-
-		String severity = element.getValue("Severity");
-		if (severity != null) {
-			severity = severity.replace("[\"", "");
-			severity = severity.replace("\"]", "");
-			TextView severityField = (TextView) findViewById(R.id.severity);
-			severityField.setText("Severity: " + severity);
+		try {
+			JSONObject photo = new JSONObject(element.getValue("Photo"));
+			WebView web = (WebView) findViewById(R.id.entry_photo);
+			StringBuilder sb = new StringBuilder(getString(com.liferay.mobile.screens.R.string.liferay_server));
+			sb.append("/documents/");
+			sb.append(photo.get("groupId"));
+			sb.append("/0/a/");
+				sb.append(photo.get("uuid"));
+			sb.append("?=");
+			sb.append(System.currentTimeMillis());
+			sb.append("&imageThumbnail=1");
+			web.loadUrl(sb.toString());
+		} catch (JSONException e) {
+			Log.e("app",e.getMessage());
 		}
+
 
 		goRightCard1();
 	}
@@ -292,6 +310,9 @@ public class IssuesActivity extends CardActivity implements View.OnClickListener
 				break;
 			case R.id.send_message_menu_entry:
 				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.default_sms_uri))));
+				break;
+			case R.id.web_menu_entry:
+				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(com.liferay.mobile.screens.R.string.liferay_server))));
 				break;
 			case R.id.sign_out_menu_entry:
 				color = R.color.westeros_light_gray;
@@ -315,5 +336,6 @@ public class IssuesActivity extends CardActivity implements View.OnClickListener
 	private ImageView _card1ToBackgroundMenu;
 	private TextView _reportIssueTitle;
 	private Button _sendButton;
+	private boolean _card2Open=false;
 
 }

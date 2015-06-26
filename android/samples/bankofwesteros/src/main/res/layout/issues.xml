@@ -28,9 +28,14 @@
 			android:text="@string/send_a_message"/>
 
 		<TextView
+			android:id="@+id/web_menu_entry"
+			style="@style/westeros_menu_entry"
+			android:text="@string/demo_web"
+			android:background="@color/westeros_light_gray"/>
+
+		<TextView
 			android:id="@+id/sign_out_menu_entry"
 			style="@style/westeros_menu_entry"
-			android:background="@color/westeros_light_gray"
 			android:text="@string/sign_out"/>
 
 	</LinearLayout>
@@ -122,21 +127,14 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"/>
 
-			<TextView
-				android:layout_below="@id/createdAt"
-				android:id="@+id/description"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:paddingBottom="30dp"
-				android:paddingTop="30dp"
-				android:textColor="@color/westeros_black"/>
+			<WebView
+					android:layout_below="@id/createdAt"
+					android:id="@+id/entry_photo"
+					android:layout_width="300dp"
+					android:layout_height="wrap_content"
+					android:layout_centerHorizontal="true"
+					android:paddingTop="10dp"/>
 
-			<TextView
-				android:layout_below="@id/description"
-				android:id="@+id/severity"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:textColor="@color/westeros_red"/>
 
 		</RelativeLayout>
 	</FrameLayout>
@@ -170,10 +168,7 @@
 			android:layout_height="match_parent"
 			liferay:layoutId="@layout/ddl_form_westeros"
 			liferay:recordSetId="@integer/liferay_recordset_id"
-			liferay:selectFieldLayoutId="@layout/ddlfield_select_westeros"
-			liferay:structureId="@integer/liferay_structure_id"
-			liferay:textAreaFieldLayoutId="@layout/ddlfield_text_area_westeros"
-			liferay:textFieldLayoutId="@layout/ddlfield_text_westeros"/>
+			liferay:structureId="@integer/liferay_structure_id"/>
 	</RelativeLayout>
 
 	<FrameLayout

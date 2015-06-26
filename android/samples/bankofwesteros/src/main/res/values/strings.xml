@@ -1,5 +1,5 @@
 <resources>
-	<string name="title">Westeros Bank</string>
+	<string name="title">OSOS 2015</string>
 	<string name="terms"><![CDATA[TERMS & CONDITIONS]]></string>
 	<string name="terms_text"><![CDATA[Liferay, Inc. ("Liferay") respects the intellectual property rights of others. It is Liferay\'s policy, when appropriate, to (i) block access to or remove content that is deemed, in good faith, to be infringing on another\'s intellectual property rights; and (ii) terminate the accounts of users who violate others\' intellectual property rights.
 \r\n
@@ -27,16 +27,17 @@
 \r\nUpon receipt of a counter notification, please be advised that Liferay will forward a copy of it to the party who submitted the original infringement notice. Your contact information is included on this counter notification. By submitting a counter notification, you consent to having your contact information revealed in this way.  Liferay will not forward the counter notification to any party other than the original claimant.
 \r\n
 \r\nThe original claimant may elect to file a lawsuit against you for copyright infringement.  If Liferay does not receive notice that a lawsuit has been filed within ten (10) business days after notice of your counter notification, Liferay will restore the removed material. However, until such time, any removed material will remain removed.]]></string>
-	<string name="report_issue">Report Issue</string>
+	<string name="report_issue">Submit an entry</string>
 	<string name="account_settings">Account Settings</string>
 	<string name="severity">Severity</string>
-	<string name="send">Send Issue</string>
+	<string name="send">Submit entry</string>
 	<string name="reset_password_text">We will send you a link to reset your password.\r\n\r\nThe link will be valid 24 hours</string>
 	<string name="send_password">Send Password</string>
 	<string name="send_a_message">Send a message</string>
+	<string name="demo_web">Open Web</string>
 	<string name="sign_out">Sign Out</string>
-	<string name="my_issues">My Issues</string>
-	<string name="issue_detail">Issue Detail</string>
+	<string name="my_issues">My entries</string>
+	<string name="issue_detail">Entry Detail</string>
 	<string name="sign_in">Sign In</string>
 	<string name="forgot_password_title">Forgot Password</string>
 	<string name="next">Next</string>
@@ -46,9 +47,11 @@
 	<string name="problem_solvers">We are the problem solvers</string>
 	<string name="a_team_of_proffessionals">A team of professionals committed to help you have the best work experience</string>
 	<string name="start">Start</string>
-	<string name="edit_issue">Edit Issue</string>
+	<string name="edit_issue">Edit Entry</string>
 	<string name="call_menu_entry">Call (Monday - Friday, 06:00 - 22:00)</string>
-	<string name="default_telephone_uri">tel:900000000</string>
-	<string name="default_sms_uri">sms:900000000</string>
+	<string name="default_telephone_uri">tel:+447786542037</string>
+	<string name="default_sms_uri">sms:+447786542037</string>
+	<string name="entry_submitted">Entry submitted</string>
+	<string name="entry_updated">Entry updated</string>
 
 </resources>

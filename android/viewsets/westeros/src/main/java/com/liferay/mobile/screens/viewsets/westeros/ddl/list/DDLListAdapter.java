@@ -46,7 +46,6 @@ public class DDLListAdapter
             _listener = listener;
 
             view.setOnClickListener(this);
-            view.findViewById(R.id.liferay_list_edit).setOnClickListener(this);
             view.findViewById(R.id.liferay_list_view).setOnClickListener(this);
             _swipeLayout = (SwipeLayout) view.findViewById(R.id.liferay_swipe_layout);
 
@@ -56,8 +55,7 @@ public class DDLListAdapter
         public void onClick(View v) {
             boolean opened = SwipeLayout.Status.Open.equals(_swipeLayout.getOpenStatus());
             if (opened &&
-                (v.getId() == R.id.liferay_list_edit
-                    || v.getId() == R.id.liferay_list_view)) {
+                (v.getId() == R.id.liferay_list_view)) {
 
                 _listener.onItemClick(getPosition(), v);
             }
@@ -130,11 +128,6 @@ public class DDLListAdapter
 
             holder.textView.setText(titleField);
             holder._subtitleTextView.setText(builder.toString());
-
-            int drawableId = getDrawable(getEntries().indexOf(entry));
-            if (holder._stateIconView != null) {
-                holder._stateIconView.setImageResource(drawableId);
-            }
         }
     }
 
