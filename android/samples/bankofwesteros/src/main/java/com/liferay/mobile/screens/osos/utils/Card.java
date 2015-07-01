@@ -1,4 +1,4 @@
-package com.liferay.mobile.screens.bankofwesteros.utils;
+package com.liferay.mobile.screens.osos.utils;
 
 /**
  * @author Javier Gamarra

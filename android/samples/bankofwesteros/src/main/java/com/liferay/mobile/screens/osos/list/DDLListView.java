@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.mobile.screens.bankofwesteros.list;
+package com.liferay.mobile.screens.osos.list;
 
 import android.content.Context;
 import android.support.v4.widget.SwipeRefreshLayout;

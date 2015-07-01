@@ -1,4 +1,4 @@
-package com.liferay.mobile.screens.bankofwesteros.push;
+package com.liferay.mobile.screens.osos.push;
 
 import android.app.Activity;
 import android.content.Context;

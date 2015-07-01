@@ -1,4 +1,4 @@
-package com.liferay.mobile.screens.bankofwesteros.activities;
+package com.liferay.mobile.screens.osos.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,8 +15,8 @@ import android.text.style.ImageSpan;
 import android.view.View;
 import android.widget.Button;
 
-import com.liferay.mobile.screens.bankofwesteros.R;
-import com.liferay.mobile.screens.bankofwesteros.fragments.TourPageFragment;
+import com.liferay.mobile.screens.osos.R;
+import com.liferay.mobile.screens.osos.fragments.TourPageFragment;
 
 /**
  * @author Javier Gamarra

@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.mobile.screens.bankofwesteros.activities;
+package com.liferay.mobile.screens.osos.activities;
 
 import android.animation.Animator;
 import android.content.Intent;
@@ -26,8 +26,8 @@ import com.liferay.mobile.screens.auth.forgotpassword.ForgotPasswordListener;
 import com.liferay.mobile.screens.auth.forgotpassword.ForgotPasswordScreenlet;
 import com.liferay.mobile.screens.auth.login.LoginListener;
 import com.liferay.mobile.screens.auth.login.LoginScreenlet;
-import com.liferay.mobile.screens.bankofwesteros.R;
-import com.liferay.mobile.screens.bankofwesteros.utils.EndAnimationListener;
+import com.liferay.mobile.screens.osos.R;
+import com.liferay.mobile.screens.osos.utils.EndAnimationListener;
 import com.liferay.mobile.screens.context.User;
 import com.liferay.mobile.screens.viewsets.defaultviews.LiferayCrouton;
 import com.liferay.mobile.screens.viewsets.westeros.auth.signup.SignUpListener;

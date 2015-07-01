@@ -1,4 +1,4 @@
-package com.liferay.mobile.screens.bankofwesteros.activities;
+package com.liferay.mobile.screens.osos.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.liferay.mobile.android.task.callback.typed.JSONObjectAsyncTaskCallback;
-import com.liferay.mobile.screens.bankofwesteros.R;
-import com.liferay.mobile.screens.bankofwesteros.views.UpdateUserInteractorImpl;
+import com.liferay.mobile.screens.osos.R;
+import com.liferay.mobile.screens.osos.views.UpdateUserInteractorImpl;
 import com.liferay.mobile.screens.context.SessionContext;
 import com.liferay.mobile.screens.context.User;
 import com.liferay.mobile.screens.userportrait.UserPortraitListener;

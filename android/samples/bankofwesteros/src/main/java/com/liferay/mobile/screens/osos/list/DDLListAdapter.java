@@ -1,4 +1,4 @@
-package com.liferay.mobile.screens.bankofwesteros.list; /**
+package com.liferay.mobile.screens.osos.list; /**
  * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  * <p/>
  * This library is free software; you can redistribute it and/or modify it under
@@ -12,7 +12,7 @@ package com.liferay.mobile.screens.bankofwesteros.list; /**
  * details.
  */
 
-import com.liferay.mobile.screens.bankofwesteros.R;
+import com.liferay.mobile.screens.osos.R;
 import com.liferay.mobile.screens.base.list.BaseListAdapterListener;
 
 /**

@@ -1,4 +1,4 @@
-package com.liferay.mobile.screens.bankofwesteros.fragments;
+package com.liferay.mobile.screens.osos.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

@@ -1,4 +1,4 @@
-package com.liferay.mobile.screens.bankofwesteros.activities;
+package com.liferay.mobile.screens.osos.activities;
 
 import android.animation.Animator;
 import android.app.Activity;
@@ -17,9 +17,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.liferay.mobile.screens.bankofwesteros.R;
-import com.liferay.mobile.screens.bankofwesteros.utils.Card;
-import com.liferay.mobile.screens.bankofwesteros.utils.EndAnimationListener;
+import com.liferay.mobile.screens.osos.R;
+import com.liferay.mobile.screens.osos.utils.Card;
+import com.liferay.mobile.screens.osos.utils.EndAnimationListener;
 import com.liferay.mobile.screens.base.list.BaseListListener;
 import com.liferay.mobile.screens.base.list.BaseListScreenlet;
 import com.liferay.mobile.screens.context.SessionContext;

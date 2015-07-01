@@ -10,7 +10,7 @@ android {
 	}
 
 	defaultConfig {
-		applicationId "com.liferay.mobile.screens.bankofwesteros"
+		applicationId "com.liferay.mobile.screens.osos"
 		minSdkVersion 14
 		targetSdkVersion 22
 		versionCode 3

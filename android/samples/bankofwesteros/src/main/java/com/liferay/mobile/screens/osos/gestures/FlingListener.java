@@ -1,4 +1,4 @@
-package com.liferay.mobile.screens.bankofwesteros.gestures;
+package com.liferay.mobile.screens.osos.gestures;
 
 /**
  * @author Javier Gamarra
