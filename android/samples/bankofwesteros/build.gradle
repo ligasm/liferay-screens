@@ -16,6 +16,15 @@ android {
 		versionCode 3
 		versionName "1.0"
 	}
+	signingConfigs {
+		release {
+			storeFile file("/opt/android/keystore/android.jks")
+			storePassword "mir333"
+			keyAlias "AndroidKey"
+			keyPassword "mir333"
+		}
+	}
+
 	buildTypes {
 		release {
 			minifyEnabled false
