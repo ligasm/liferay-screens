@@ -16,22 +16,29 @@ package com.liferay.mobile.screens.osos.activities;
 
 import android.animation.Animator;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewPropertyAnimator;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.google.android.gms.gcm.GoogleCloudMessaging;
+import com.liferay.mobile.push.Push;
 import com.liferay.mobile.screens.auth.forgotpassword.ForgotPasswordListener;
 import com.liferay.mobile.screens.auth.forgotpassword.ForgotPasswordScreenlet;
 import com.liferay.mobile.screens.auth.login.LoginListener;
 import com.liferay.mobile.screens.auth.login.LoginScreenlet;
+import com.liferay.mobile.screens.context.SessionContext;
 import com.liferay.mobile.screens.osos.R;
 import com.liferay.mobile.screens.osos.utils.EndAnimationListener;
 import com.liferay.mobile.screens.context.User;
+import com.liferay.mobile.screens.util.LiferayLogger;
 import com.liferay.mobile.screens.viewsets.defaultviews.LiferayCrouton;
 import com.liferay.mobile.screens.viewsets.westeros.auth.signup.SignUpListener;
 import com.liferay.mobile.screens.viewsets.westeros.auth.signup.SignUpScreenlet;
+
+import java.io.IOException;
 
 import de.keyboardsurfer.android.widget.crouton.Configuration;
 
@@ -82,6 +89,7 @@ public class MainActivity extends CardActivity implements View.OnClickListener, 
 
 	@Override
 	public void onLoginSuccess(User user) {
+		new AsyncPush().execute(null, null, null);
 		toIssues();
 	}
 
@@ -149,6 +157,48 @@ public class MainActivity extends CardActivity implements View.OnClickListener, 
 			});
 	}
 
+
+
+	private void registerWithLiferayPortal(String register) {
+		Push.with(SessionContext.createSessionFromCurrentSession()).onSuccess(new Push.OnSuccess() {
+
+			@Override
+			public void onSuccess(Object result) {
+				LiferayLogger.i("Device registered with Liferay Portal: " + result);
+			}
+
+		}).onFailure(new Push.OnFailure() {
+
+			@Override
+			public void onFailure(Exception e) {
+				LiferayLogger.e("Some error occurred: ", e);
+			}
+
+		}).register(register);
+	}
+
+	private class AsyncPush extends AsyncTask<Void, Void, String> {
+
+		@Override
+		protected String doInBackground(Void... voids) {
+			try {
+				final GoogleCloudMessaging gcm = GoogleCloudMessaging.getInstance(MainActivity.this);
+				String registrationId = gcm.register(SENDER_ID);
+
+				LiferayLogger.i("RegistrationId: " + registrationId);
+
+				registerWithLiferayPortal(registrationId);
+
+				return registrationId;
+			}
+			catch (IOException ex) {
+				LiferayLogger.e("Error", ex);
+			}
+			return null;
+		}
+	}
+
+	private static final String SENDER_ID = "1010930493231";
 
 	private ImageView _background;
 	private EditText _forgotPasswordField;
