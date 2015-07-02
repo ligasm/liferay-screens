@@ -32,6 +32,7 @@
 				android:text="@string/sign_in"/>
 
 			<ImageView
+				android:tint="?attr/colorPrimary"
 				android:id="@+id/card1_to_background"
 				style="@style/westeros_arrow"
 				android:layout_alignParentEnd="true"
@@ -57,6 +58,7 @@
 			android:orientation="vertical">
 
 			<ImageView
+				android:tint="?attr/colorPrimary"
 				android:id="@+id/card1_to_front_view"
 				style="@style/westeros_arrow"
 				android:layout_alignParentLeft="true"
@@ -70,6 +72,7 @@
 				android:text="@string/forgot_password_title"/>
 
 			<ImageView
+				android:tint="?attr/colorPrimary"
 				android:id="@+id/card1_subview_to_background"
 				style="@style/westeros_arrow"
 				android:layout_alignParentEnd="true"
@@ -113,6 +116,7 @@
 				android:textColor="@android:color/white"/>
 
 			<ImageView
+				android:tint="?attr/colorPrimary"
 				android:id="@+id/card2_to_card1"
 				style="@style/westeros_arrow"
 				android:layout_alignParentEnd="true"
@@ -138,6 +142,7 @@
 			android:orientation="vertical">
 
 			<ImageView
+				android:tint="?attr/colorPrimary"
 				android:id="@+id/card2_to_front_view"
 				style="@style/westeros_arrow"
 				android:layout_alignParentLeft="true"
@@ -152,6 +157,7 @@
 				android:textColor="@android:color/white"/>
 
 			<ImageView
+				android:tint="?attr/colorPrimary"
 				android:id="@+id/card2_subview_to_card1"
 				style="@style/westeros_arrow"
 				android:layout_alignParentEnd="true"

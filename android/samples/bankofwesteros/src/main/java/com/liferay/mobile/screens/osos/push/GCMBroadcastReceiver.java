@@ -14,36 +14,48 @@ import com.liferay.mobile.screens.osos.R;
 import com.liferay.mobile.screens.osos.activities.MainActivity;
 import com.liferay.mobile.screens.util.LiferayLogger;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class GCMBroadcastReceiver extends WakefulBroadcastReceiver {
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		LiferayLogger.e("Push Received: " + intent.toString());
 
-		String message = intent.getExtras().getString("message");
+		String payload = intent.getExtras().getString("payload");
 
-		setResultCode(Activity.RESULT_OK);
+		try {
+			JSONObject jsonObject = new JSONObject(payload);
 
-		sendNotification(context, message);
+			String message = jsonObject.getString("body");
+
+			setResultCode(Activity.RESULT_OK);
+
+			sendNotification(context, message);
+		}
+		catch (JSONException e) {
+			LiferayLogger.e("Error trying to parse message", e);
+		}
 	}
 
 	private void sendNotification(Context context, String message) {
 		Intent intent = new Intent(context, MainActivity.class);
 		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		PendingIntent pendingIntent = PendingIntent.getActivity(context, 0 /* Request code */, intent,
-				PendingIntent.FLAG_ONE_SHOT);
+			PendingIntent.FLAG_ONE_SHOT);
 
-		Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+		Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 		NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(context)
-				.setSmallIcon(R.drawable.ic_stat_ic_notification)
-				.setContentTitle("OSOS Notification.")
-				.setContentText(message)
-				.setAutoCancel(true)
-				.setSound(defaultSoundUri)
-				.setContentIntent(pendingIntent);
+			.setSmallIcon(R.drawable.ic_stat_ic_notification)
+			.setContentTitle("OSOS Notification.")
+			.setContentText(message)
+			.setAutoCancel(true)
+			.setSound(defaultSoundUri)
+			.setContentIntent(pendingIntent);
 
 		NotificationManager notificationManager =
-				(NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+			(NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
 		notificationManager.notify(0 /* ID of notification */, notificationBuilder.build());
 	}

@@ -55,6 +55,7 @@
 			android:orientation="vertical">
 
 			<ImageView
+				android:tint="?attr/colorPrimary"
 				style="@style/westeros_arrow"
 				android:id="@+id/card1_to_background_menu"
 				android:layout_alignParentLeft="true"
@@ -67,6 +68,7 @@
 				android:text="@string/my_issues"/>
 
 			<ImageView
+				android:tint="?attr/colorPrimary"
 				style="@style/westeros_arrow"
 				android:id="@+id/card1_to_background"
 				android:layout_alignParentRight="true"
@@ -99,6 +101,7 @@
 			android:orientation="vertical">
 
 			<ImageView
+				android:tint="?attr/colorPrimary"
 				android:tag="card1_to_front_view"
 				style="@style/westeros_arrow"
 				android:id="@+id/card1_to_front_view"
@@ -154,6 +157,7 @@
 			android:textColor="@android:color/white"/>
 
 		<ImageView
+			android:tint="?attr/colorPrimary"
 			android:tag="card2_to_card1"
 			style="@style/westeros_arrow"
 			android:id="@+id/card2_to_card1"

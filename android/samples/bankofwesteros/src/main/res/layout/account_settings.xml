@@ -6,6 +6,7 @@
 				android:background="@android:color/white">
 
 	<ImageView
+		android:tint="?attr/colorPrimary"
 		android:id="@+id/arrow_back_to_issues"
 		android:layout_alignParentLeft="true"
 		android:layout_alignParentStart="true"
