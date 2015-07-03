@@ -1,5 +1,5 @@
 <resources>
-	<string name="title">OSOS 2015</string>
+	<string name="title">Liferay OSOS</string>
 	<string name="terms"><![CDATA[TERMS & CONDITIONS]]></string>
 	<string name="terms_text"><![CDATA[Liferay, Inc. ("Liferay") respects the intellectual property rights of others. It is Liferay\'s policy, when appropriate, to (i) block access to or remove content that is deemed, in good faith, to be infringing on another\'s intellectual property rights; and (ii) terminate the accounts of users who violate others\' intellectual property rights.
 \r\n
@@ -41,11 +41,12 @@
 	<string name="sign_in">Sign In</string>
 	<string name="forgot_password_title">Forgot Password</string>
 	<string name="next">Next</string>
-	<string name="problems_with_laptop">Problems with your laptop?</string>
-	<string name="we_are_here_to_help">Tell us, we are here to help</string>
-	<string name="issues_at_the_office">Any issues at the office?</string>
-	<string name="problem_solvers">We are the problem solvers</string>
-	<string name="a_team_of_proffessionals">A team of professionals committed to help you have the best work experience</string>
+	<string name="osos_liferay_photo">OSOS Liferay Photo Competition</string>
+	<string name="take_a_photo_that_captures_the_day">Take a photo that captures the day!</string>
+	<string name="use_the_app_to_take_a_photo">Use this app to take a picture...</string>
+	<string name="for_a_chance_to_win">For a chance to win a Hudle2!</string>
+	<string name="and_submit_it">... and submit it to enter.</string>
+	<string name="you_can_vote_later">You can vote on the site later.</string>
 	<string name="start">Start</string>
 	<string name="edit_issue">Edit Entry</string>
 	<string name="call_menu_entry">Call (Monday - Friday, 06:00 - 22:00)</string>

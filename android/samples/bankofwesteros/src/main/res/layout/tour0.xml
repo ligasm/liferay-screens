@@ -10,12 +10,12 @@
 		android:layout_centerHorizontal="true"
 		android:layout_gravity="center"
 		android:layout_marginTop="50dp"
-		android:src="@drawable/tour_laptop"/>
+		android:src="@drawable/osos_logo"/>
 
 	<TextView
 		style="@style/westeros_tour_text"
 		android:layout_above="@+id/tour_description"
-		android:text="@string/problems_with_laptop"
+		android:text="@string/osos_liferay_photo"
 		android:textStyle="bold"
 		android:textAllCaps="true"/>
 
@@ -23,7 +23,7 @@
 		android:id="@+id/tour_description"
 		style="@style/westeros_tour_text"
 		android:layout_alignParentBottom="true"
-		android:text="@string/we_are_here_to_help"
+		android:text="@string/take_a_photo_that_captures_the_day"
 		android:textColor="@color/westeros_dark_gray"/>
 
 </RelativeLayout>

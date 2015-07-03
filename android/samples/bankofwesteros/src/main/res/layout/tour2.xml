@@ -10,12 +10,12 @@
 		android:layout_centerHorizontal="true"
 		android:layout_gravity="center"
 		android:layout_marginTop="50dp"
-		android:src="@drawable/tour_girl"/>
+		android:src="@drawable/camera"/>
 
 	<TextView
 		style="@style/westeros_tour_text"
 		android:layout_above="@+id/tour_description"
-		android:text="@string/problem_solvers"
+		android:text="@string/and_submit_it"
 		android:textAllCaps="true"
 		android:textStyle="bold"/>
 
@@ -23,7 +23,7 @@
 		android:id="@+id/tour_description"
 		style="@style/westeros_tour_text"
 		android:layout_alignParentBottom="true"
-		android:text="@string/a_team_of_proffessionals"
+		android:text="@string/you_can_vote_later"
 		android:textColor="@color/westeros_dark_gray"/>
 
 </RelativeLayout>

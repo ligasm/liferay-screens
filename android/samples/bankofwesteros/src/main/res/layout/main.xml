@@ -11,7 +11,7 @@
 		android:layout_height="wrap_content"
 		android:layout_gravity="center_horizontal"
 		android:layout_margin="30dp"
-		android:background="@drawable/osos_logo"/>
+		android:background="@drawable/ososlfr_logo"/>
 
 	<FrameLayout
 		android:id="@+id/card1"

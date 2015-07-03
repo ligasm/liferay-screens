@@ -10,13 +10,13 @@
 		android:layout_centerHorizontal="true"
 		android:layout_gravity="center"
 		android:layout_marginTop="50dp"
-		android:src="@drawable/tour_window"/>
+		android:src="@drawable/lfr_logo"/>
 
 	<TextView
 		style="@style/westeros_tour_text"
 		android:layout_above="@+id/tour_description"
 		android:gravity="center"
-		android:text="@string/issues_at_the_office"
+		android:text="@string/use_the_app_to_take_a_photo"
 		android:textAllCaps="true"
 		android:textStyle="bold"/>
 
@@ -24,7 +24,6 @@
 		android:id="@+id/tour_description"
 		style="@style/westeros_tour_text"
 		android:layout_alignParentBottom="true"
-		android:text="@string/we_are_here_to_help"
+		android:text="@string/for_a_chance_to_win"
 		android:textColor="@color/westeros_dark_gray"/>
-
 </RelativeLayout>
